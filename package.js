@@ -1,6 +1,6 @@
 Package.describe({
   name: 'elmarti:social-media-url-parser',
-  version: '0.0.2',
+  version: '0.0.3',
   // Brief, one-line summary of the package.
   summary: 'Parse a variety of social media urls',
   // URL to the Git repository containing the source code for this package.
@@ -13,8 +13,8 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('ecmascript');
-  api.addFiles('social-media-url-parser.js');
-  api.export('socialMediaUrl', 'client');
+  api.addFiles('social-media-url-parser.js', 'client');
+  api.export('socialMediaURL', 'client');
 });
 
 Package.onTest(function(api) {

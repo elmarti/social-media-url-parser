@@ -1,47 +1,48 @@
-	socialMediaURL = { 
-		parse : function(input, type){
+	socialMediaURL = {
+		parse: function(input, type) {
 			let output = {};
 			//use regex to indentify is string is URL
-			if(socialMediaURL.regXP.test(input)){
+			if (socialMediaURL.regXP.test(input)) {
 				let linkData = document.createElement('a');
-				linkData.href=input;
+				linkData.href = input;
 				output.type = "URL";
 				output.service = linkData.hostname.replace(".com", "").toUpperCase();
 				output.hostname = linkData.hostname;
 				output.pathname = linkData.pathname;
-				
-				switch(output.service){
+
+				switch (output.service) {
 					case "FACEBOOK":
-					output.userId = output.pathname.replace("/","");
-					break;
+						output.userId = output.pathname.replace("/", "");
+						break;
 					case "LINKEDIN":
-					output.linkedinStyle = output.pathname;
-					output.userId =  output.pathname.replace("/in/","");
-					break;
+						output.linkedinStyle = output.pathname;
+						output.userId = output.pathname.replace("/in/", "");
+						break;
 					case "TWITTER":
-					output.twitterHandle = "@" + output.pathname.replace("/","");
-					output.userId = output.pathname.replace("/","");
-					break;
+						output.twitterHandle = "@" + output.pathname.replace("/", "");
+						output.userId = output.pathname.replace("/", "");
+						break;
+						default :
+						return "ERROR";
 
 				}
 				return output;
 			}
-			else
-			{
-				if(!type)
+			else {
+				if (!type)
 					throw new Meteor.error(500, "Please enter a type if it's possible that it is not a URL.");
 				else
-					 switch(type){
+					switch (type) {
 						case "FACEBOOK":
-						return "https://www.facebook.com/"+ input;
+							return "https://www.facebook.com/" + input;
 						case "LINKEDIN":
-						return "https://www.linkedin.com/in/"+ input;
-						break;
+							return "https://www.linkedin.com/in/" + input;
+							break;
 						case "TWITTER":
-						input.replace("@","");
-						return "https://www.twitter.com/" + input; 
+							input.replace("@", "");
+							return "https://www.twitter.com/" + input;
 					}
-				}
-			},
-		}
-		socialMediaURL.regXP = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/; 
+			}
+		},
+	}
+	socialMediaURL.regXP = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
