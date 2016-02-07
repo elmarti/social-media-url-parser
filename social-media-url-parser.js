@@ -4,12 +4,12 @@
 			//use regex to indentify is string is URL
 			if (socialMediaURL.regXP.test(input)) {
 				let linkData = document.createElement('a');
-				
+
 				linkData.href = input;
 				console.log(linkData);
-				output.href = input; 
+				output.href = input;
 				output.type = "URL";
-				output.service = linkData.hostname.replace(".com", "").replace("www.","").toUpperCase();
+				output.service = linkData.hostname.replace(".com", "").replace("www.", "").toUpperCase();
 				output.hostname = linkData.hostname;
 				output.pathname = linkData.pathname;
 				console.log(output);
@@ -18,14 +18,13 @@
 						output.userId = output.pathname.replace("/", "");
 						break;
 					case "LINKEDIN":
-						output.linkedinStyle = output.pathname;
 						output.userId = output.pathname.replace("/in/", "");
 						break;
 					case "TWITTER":
 						output.twitterHandle = "@" + output.pathname.replace("/", "");
 						output.userId = output.pathname.replace("/", "");
 						break;
-						default :
+					default:
 						return "ERROR";
 
 				}
@@ -37,13 +36,35 @@
 				else
 					switch (type) {
 						case "FACEBOOK":
-							return "https://www.facebook.com/" + input;
+							return {
+								href: "https://www.facebook.com/" + input,
+								type: "ID",
+								service: type,
+								hostname: "facebook.com",
+								pathname: "/" + input,
+								userId: input
+							};
 						case "LINKEDIN":
-							return "https://www.linkedin.com/in/" + input;
-							break;
+							return {
+								href: "https://www.linkedin.com/in/" + input,
+								type: "ID",
+								service: type,
+								hostname: "linkedin.com",
+								pathname: "/in/" + input,
+								userId: input
+							};
 						case "TWITTER":
-							input.replace("@", "");
-							return "https://www.twitter.com/" + input;
+							let twitterOutput = {
+								href: "https://www.twitter.com/" + input.replace("@", ""),
+								type: "ID",
+								service: type,
+								hostname: "twitter.com",
+								pathname: "/" + input.replace("@", ""),
+								userId: input
+							};
+							if (input.indexOf("@") === -1)
+								twitterOutput.twitterHandle = "@" + input;
+							return twitterOutput;
 					}
 			}
 		},
