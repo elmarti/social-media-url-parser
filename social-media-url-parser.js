@@ -4,12 +4,15 @@
 			//use regex to indentify is string is URL
 			if (socialMediaURL.regXP.test(input)) {
 				let linkData = document.createElement('a');
+				
 				linkData.href = input;
+				console.log(linkData);
+				output.href = input; 
 				output.type = "URL";
-				output.service = linkData.hostname.replace(".com", "").toUpperCase();
+				output.service = linkData.hostname.replace(".com", "").replace("www.","").toUpperCase();
 				output.hostname = linkData.hostname;
 				output.pathname = linkData.pathname;
-
+				console.log(output);
 				switch (output.service) {
 					case "FACEBOOK":
 						output.userId = output.pathname.replace("/", "");
