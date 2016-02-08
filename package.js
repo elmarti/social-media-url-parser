@@ -1,8 +1,8 @@
 Package.describe({
   name: 'elmarti:social-media-url-parser',
-  version: '0.1.0',
+  version: '0.1.1',
   // Brief, one-line summary of the package.
-  summary: 'Parse a variety of social media urls',
+  summary: 'Get your social media data in the correct format - URL, handle, ID etc',
   // URL to the Git repository containing the source code for this package.
   git: 'https://github.com/elmarti/social-media-url-parser',
   // By default, Meteor will default to using README.md for documentation.
