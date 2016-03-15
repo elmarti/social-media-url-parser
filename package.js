@@ -1,6 +1,6 @@
 Package.describe({
   name: 'elmarti:social-media-url-parser',
-  version: '1.0.1',
+  version: '1.0.2',
   // Brief, one-line summary of the package.
   summary: 'Get your social media data in the correct format - URL, handle, ID etc',
   // URL to the Git repository containing the source code for this package.
