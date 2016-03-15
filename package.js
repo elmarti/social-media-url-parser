@@ -13,8 +13,8 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('ecmascript');
-  api.addFiles('social-media-url-parser.js', 'client');
-  api.export('socialMediaURL', 'client');
+  api.addFiles('social-media-url-parser.js', ['client']);
+  api.export('socialMediaURL', ['client']);
 });
 
 Package.onTest(function(api) {

@@ -41,28 +41,28 @@
 					switch (type) {
 						case "FACEBOOK":
 							return {
-								href: "https://www.facebook.com/" + input,
+								href: "http://www.facebook.com/" + input,
 								type: "ID",
 								service: type,
-								hostname: "facebook.com",
+								hostname: "www.facebook.com",
 								pathname: "/" + input,
 								userId: input
 							};
 						case "LINKEDIN":
 							return {
-								href: "https://www.linkedin.com/in/" + input,
+								href: "http://www.linkedin.com/in/" + input,
 								type: "ID",
 								service: type,
-								hostname: "linkedin.com",
+								hostname: "www.linkedin.com",
 								pathname: "/in/" + input,
 								userId: input
 							};
 						case "TWITTER":
 							let twitterOutput = {
-								href: "https://www.twitter.com/" + input.replace("@", ""),
+								href: "http://www.twitter.com/" + input.replace("@", ""),
 								type: "ID",
 								service: type,
-								hostname: "twitter.com",
+								hostname: "www.twitter.com",
 								pathname: "/" + input.replace("@", ""),
 								userId: input
 							};
