@@ -11,9 +11,6 @@ You want users to input their Twitter handle or URL, but don't want to confuse t
 Simply dump your URL or userId in `socialMediaURL.parse` to get all the data you need. 
 **From id**
 
-**SEE AN EXAMPLE**
-http://social-media-parser.meteor.com/
-
 ``` socialMediaURL.parse("Lolem1psum", "TWITTER"); ```
 Which returns
 
